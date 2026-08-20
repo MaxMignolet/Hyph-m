@@ -9,24 +9,26 @@ SRC_DIR := ./src
 SRC_EXEC := $(TARGET_EXEC).F90
 
 # For Ubuntu+brew
-FCFLAGS:=-Og -ggdb -I/home/linuxbrew/.linuxbrew/Cellar/fortran-stdlib/0.8.1/include/fortran_stdlib/GNU-15.2.0 -lfortran_stdlib
+FCFLAGS:=-O3 -I/home/linuxbrew/.linuxbrew/Cellar/fortran-stdlib/0.8.1/include/fortran_stdlib/GNU-15.2.0 -lfortran_stdlib
 LDFLAGS:=-L/home/linuxbrew/.linuxbrew/lib -L/home/linuxbrew/.linuxbrew/Cellar/fortran-stdlib/0.8.1/lib -lfortran_stdlib -lfortran_stdlib_stats -lfortran_stdlib_system -lfortran_stdlib_stringlist -lfortran_stdlib_specialmatrices -lfortran_stdlib_quadrature -lfortran_stdlib_logger -lfortran_stdlib_linalg_iterative -lfortran_stdlib_io -lfortran_stdlib_hashmaps -lfortran_stdlib_ansi -lfortran_stdlib_sparse -lfortran_stdlib_specialfunctions -lfortran_stdlib_selection -lfortran_stdlib_math -lfortran_stdlib_linalg -lfortran_stdlib_sorting -lfortran_stdlib_bitsets -lfortran_stdlib_lapack_extended -lfortran_stdlib_lapack -lfortran_stdlib_strings -lfortran_stdlib_intrinsics -lfortran_stdlib_blas -lfortran_stdlib_linalg_core -lfortran_stdlib_hash -lfortran_stdlib_constants -lfortran_stdlib_core -lfortran_stdlib_array
 LDFLAGS_LINALG:=-L/home/linuxbrew/.linuxbrew/lib -llapack
-# For MacOs+brew (outdated
-# FCFLAGS:=-O0 -I/usr/local/include -I/usr/local/include/fortran_stdlib/GNU-14.2.0 -lfortran_stdlib
-# LDFLAGS:=-L/usr/local/lib -lfortran_stdlib
-# LDFLAGS_LINALG:=-L${MKLROOT}/lib -Wl,-rpath,${MKLROOT}/lib -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl
+FCFLAGS_LINALG:=
+# For MacOs+brew
+# FCFLAGS:=-O3 -I/opt/homebrew/Cellar/fortran-stdlib/0.8.1/include -I/opt/homebrew/Cellar/fortran-stdlib/0.8.1/include/fortran_stdlib/GNU-15.2.0
+# LDFLAGS:=-L/opt/homebrew/Cellar/fortran-stdlib/0.8.1/lib -lfortran_stdlib -lfortran_stdlib_stats -lfortran_stdlib_system -lfortran_stdlib_stringlist -lfortran_stdlib_specialmatrices -lfortran_stdlib_quadrature -lfortran_stdlib_logger -lfortran_stdlib_linalg_iterative -lfortran_stdlib_io -lfortran_stdlib_hashmaps -lfortran_stdlib_ansi -lfortran_stdlib_sparse -lfortran_stdlib_specialfunctions -lfortran_stdlib_selection -lfortran_stdlib_math -lfortran_stdlib_linalg -lfortran_stdlib_sorting -lfortran_stdlib_bitsets -lfortran_stdlib_lapack_extended -lfortran_stdlib_lapack -lfortran_stdlib_strings -ldl -lm -lfortran_stdlib_intrinsics -lfortran_stdlib_blas -lfortran_stdlib_linalg_core -lfortran_stdlib_hash -lfortran_stdlib_constants -lfortran_stdlib_core -lfortran_stdlib_array
+# FCFLAGS_LINALG:=-I/opt/homebrew/Cellar/openblas/0.3.34/include -I/opt/homebrew/opt/libomp/include -Xpreprocessor -fopenmp
+# LDFLAGS_LINALG:=-L/opt/homebrew/Cellar/openblas/0.3.34/lib -lopenblas
 
 LDFLAGS:=$(LDFLAGS) $(LDFLAGS_LINALG)
-EXTRA_FCFLAGSS:=-g -ffree-line-length-none -Wall -Wextra -Wpedantic\
-                -Wcharacter-truncation\
-                -Wfrontend-loop-interchange\
-                -Wrealloc-lhs -Wrealloc-lhs-all\
-                -funroll-loops -fcheck=bounds\
-                -finit-integer=-666 -finit-real=nan\
-                -fgcse-lm -fgcse-sm -ftree-vectorize\
-                -ffpe-trap=invalid,zero,overflow # -Warray-temporaries -Wconversion-extra
-FCFLAGS:=$(FCFLAGS) $(EXTRA_FCFLAGSS)
+EXTRA_FCFLAGS:=-g -ffree-line-length-none -Wall -Wextra -Wpedantic\
+               -Wcharacter-truncation\
+               -Wfrontend-loop-interchange\
+               -Wrealloc-lhs -Wrealloc-lhs-all\
+               -funroll-loops -fcheck=bounds\
+               -finit-integer=-666 -finit-real=nan\
+               -fgcse-lm -fgcse-sm -ftree-vectorize\
+               -ffpe-trap=invalid,zero,overflow # -Warray-temporaries -Wconversion-extra
+FCFLAGS:=$(FCFLAGS) $(FCFLAGS_LINALG) $(EXTRA_FCFLAGS)
 FCFLAGS+= -J $(MOD_DIR)
 
 # Find all the F90 files we want to compile
