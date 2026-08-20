@@ -6,12 +6,12 @@ Hyph-m is an almost recursive acronym: Hybrid Phonon *hyphen* Magnon
 
 # Installation
 
-The compilation of Hyp-m requires:
+The compilation of Hyph-m requires:
  - gfortran
  - a blas/lapack implementation (supported: openblas, lapack)
  - fortran standard library (https://stdlib.fortran-lang.org/)
  - meson (https://mesonbuild.com/)
-Optionnaly: cmake
+Optionally: cmake
 
 To compile:
 ```sh
@@ -20,7 +20,7 @@ cd build
 meson compile
 meson install
 ```
-This will compile and install the `hyph-m` executable in `Hyph-m/bin`. More detailled installation information can be found in `doc/INSTALLATION.md`
+This will compile and install the `hyph-m` executable in `Hyph-m/bin`. More detailed installation information can be found in `doc/INSTALLATION.md`
 
 # Running the code
 
