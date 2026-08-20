@@ -6,9 +6,11 @@ The mention "Mignolet26" in the following refers to Mignolet et al., arXiv:2607.
 
 Hyph-m takes as input mixed spin-phonon stiffness matrices and mixed spin-molecular Berry curvature matrices. These matrices correspond to the $K^{xx}$ and $G^{xx}$ whith $x \in \{u,s\}$ introduced in Mignolet26. The units are:
 
-|        | uu     | us/su | ss |
-| K^{xx} | eV/Å^2 | eV/Å  | eV |
-| G^{xx} |  1/Å^2 |  1/Å  |  - |
+|       | K^{xx} | G^{xx} |
+| ----- | ------ | ------ |
+| uu    | eV/Å^2 |  1/Å^2 |
+| us/su | eV/Å   |  1/Å   |
+| ss    | eV     |  -     |
 
 The matrices should be supplied in text format and in cartesian coordinates. The format is:
 
