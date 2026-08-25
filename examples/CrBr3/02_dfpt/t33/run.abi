@@ -1,0 +1,97 @@
+## GENERAL LINEAR RESPONSE PARAMETERS
+  tolvrs   1.0d-14
+    nqpt   1
+     qpt   0.0 0.0 0.0   
+  getwfk   1            
+
+# Print options
+  prt1mag  1
+  prtwf    1
+  iomode   3
+indata_prefix  "indata/in"
+outdata_prefix "outdata/out"
+tmpdata_prefix "tmpdata/tmp"
+
+# Magnetic penalty
+  magpen   0.05     ## This is the amplitude of the penalty (for CrI3 0.05 is a good value)   
+  mpatpol  1 2      ## Magnetic atoms (on whose local magnetic moments the penalty is applied)
+  mpdir    1 1 0    ## Cartesian components of the magnetic moments that are penalized
+  ratsm    0.5      ## This is the smearing of the atomic spheres surface (the default value is 0.5)
+                    ## For the radius of the spheres (ratshp) we use the default value 2.0 bohrs
+
+# Finite omega parameters 
+  rfomega  0.00000
+  tim1rev  1
+  ixcrot   3
+
+### 4) LINEAR RESPONSE TO LOCAL ZEEMAN FIELDS
+  rfmagn   2             # 1 is uniform Zeeman, 2 is local and ratpol needs to be specified
+ rfatpol   2 2           # Atoms on which the local Zeeman field is applied
+   rfdir   0 1 0         # Cartesian direction of the local Zeeman field
+
+### MORE GENERAL PARAMETERS
+
+# # xc functional
+# ixc  7 #ixc = -1012    # LDA: 1 PBE: 11 PBEsol: -116  PW LDA:  -1012
+# ask Miquel if the ixc=7 is important...
+
+#Definition of the atom types
+ntypat 2          
+znucl 24 35
+                
+#Definition of the atoms
+natom 8           # Nr of atoms
+typat 2*1 6*2     # Sr Mn 3 x O
+
+#Definition of the unit cell
+rprim
+    6.7493259557    0.0000000000   11.1229631832
+   -3.3746629780    5.8450877362   11.1229631832
+   -3.3746629780   -5.8450877362   11.1229631832
+
+xred
+    0.1662882979    0.1662882979    0.1662882979
+    0.8337117021    0.8337117021    0.8337117021
+    0.4216195246    0.7702368596    0.0694560195
+    0.0694560195    0.4216195246    0.7702368596
+    0.7702368596    0.0694560195    0.4216195246
+    0.5783804754    0.2297631404    0.9305439805
+    0.9305439805    0.5783804754    0.2297631404
+    0.2297631404    0.9305439805    0.5783804754
+
+#Definition of the planewave basis set
+ecut   40.0         # Maximal kinetic energy cut-off, in Hartree
+nband  70
+
+#Definition of the k-point grid
+kptopt 3          # Option for the automatic generation of k points, taking
+                  # into account the symmetry
+#ngkpt 6 6 6      
+
+kptrlatt 6 0 -6
+        -6 6  0
+         2 2  2
+
+nshiftk 1         
+shiftk 0.0 0.0 0.0
+
+#Symmetries deactivated
+nsym 1
+
+#Definition of the SCF procedure
+nstep 60        # Maximal number of SCF cycles
+diemac  8.0       # Although this is not mandatory, it is worth to
+
+nline 12
+nnsclo -4
+
+nspden   4   
+nspinor  2   
+
+# Parallelization 
+#autoparal 1
+
+#Pseudos
+pp_dirpath "$HOME/.abinit/pseudos"
+pseudos "Cr_LDA_FR.psp8, Br_LDA_FR.psp8"
+

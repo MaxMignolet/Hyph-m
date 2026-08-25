@@ -1,0 +1,102 @@
+ bandpp 70
+ ecut 40
+ iomode 3
+ ixcrot 3
+ kptopt 3
+ kptrlatt
+  6  0 -6
+ -6  6  0
+  2  2  2
+ magpen 0.05
+ mpatpol 1 2
+ mpdir 1 1 0
+ nband 70
+ nline 12
+ nnsclo -4
+ npband 1
+ npfft 8
+ npimage 1
+ npkpt 32
+ npspinor 1
+ nshiftk 1
+ nspden 4
+ nspinor 2
+ nstep 200
+ nsym 1
+ paral_kgb 1
+ prt1mag 1
+ prtwf 1
+ ratsm 0.5
+ rfomega 0.0
+ shiftk    0.0    0.0    0.0
+ spinat
+    0.0    0.0    5.0
+    0.0    0.0    5.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+ tim1rev 1
+ tolvrs 1e-14
+ indata_prefix "indata/in"
+ tmpdata_prefix "tmpdata/tmp"
+ outdata_prefix "outdata/out"
+ pp_dirpath "/home/mmaxime/.abinit/pseudos"
+ pseudos 
+    "Cr_LDA_FR.psp8,
+    I_LDA_FR.psp8"
+ natom 8
+ ntypat 2
+ typat
+ 1 1 2
+ 2 2 2
+ 2 2
+ znucl 24 53
+ xred
+    0.1662805083    0.1662805081    0.1662805040
+   -0.1662805058   -0.1662805061   -0.1662805060
+    0.4240519460   -0.2203611710    0.0653020261
+    0.0653020243    0.4240519439   -0.2203611673
+   -0.2203611712    0.0653020349    0.4240519452
+   -0.4240518330    0.2203611128   -0.0653020807
+   -0.0653020865   -0.4240518328    0.2203611165
+    0.2203611179   -0.0653020899   -0.4240518378
+ acell    1.0    1.0    1.0
+ rprim
+    7.4921305100    0.0000000000   12.4766066127
+   -3.7460652550    6.4883753501   12.4766066127
+   -3.7460652550   -6.4883753501   12.4766066127
+
+
+#<JSON>
+#{
+#    "pseudos": [
+#        {
+#            "@module": "pymatgen.io.abinit.pseudos",
+#            "@class": "NcAbinitPseudo",
+#            "basename": "Cr_LDA_FR.psp8",
+#            "type": "NcAbinitPseudo",
+#            "symbol": "Cr",
+#            "Z": 24,
+#            "Z_val": 14.0,
+#            "l_max": 2,
+#            "md5": "cf5ba86c8f42928b74bdcadc6503cb3f",
+#            "filepath": "/home/mmaxime/.abinit/pseudos/Cr_LDA_FR.psp8"
+#        },
+#        {
+#            "@module": "pymatgen.io.abinit.pseudos",
+#            "@class": "NcAbinitPseudo",
+#            "basename": "I_LDA_FR.psp8",
+#            "type": "NcAbinitPseudo",
+#            "symbol": "I",
+#            "Z": 53,
+#            "Z_val": 7.0,
+#            "l_max": 2,
+#            "md5": "4438c60f666b45c9176e67ddca5b7dda",
+#            "filepath": "/home/mmaxime/.abinit/pseudos/I_LDA_FR.psp8"
+#        }
+#    ]
+#}
+#</JSON>

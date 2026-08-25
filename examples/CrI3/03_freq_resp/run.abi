@@ -1,0 +1,108 @@
+# Adiabatic dynamics for magnetic materials
+
+## GENERAL LINEAR RESPONSE PARAMETERS
+  tolvrs   1.0d-14
+    nqpt   1
+     qpt   0.0 0.0 0.0   
+
+# Print options
+  prt1mag  1
+  prtwf    1
+indata_prefix  "indata/in"
+outdata_prefix "outdata/out"
+tmpdata_prefix "tmpdata/tmp"
+
+# Magnetic penalty
+  magpen   0.05     ## This is the amplitude of the penalty (for CrI3 0.05 is a good value)   
+  mpatpol  1 2      ## Magnetic atoms (on whose local magnetic moments the penalty is applied)
+  mpdir    1 1 0    ## Cartesian components of the magnetic moments that are penalized
+  ratsm    0.5      ## This is the smearing of the atomic spheres surface (the default value is 0.5)
+                    ## For the radius of the spheres (ratshp) we use the default value 2.0 bohrs
+
+### 5) ADIABATIC DYNAMICS
+       optdriver  10
+         timdisp  1
+         tim1rev  1
+
+ ## With the next variables all the Berry curvatures are calculated in the parameter space of phonons, electric and local Zeeman fields (adapt to your need)
+  d3e_pert1_magn  2      
+ d3e_pert1_magat  1 2
+d3e_pert1_magdir  1 1 1
+  d3e_pert1_elfd  1
+   d3e_pert1_dir  1 1 1
+  d3e_pert1_phon  1
+ d3e_pert1_atpol  1 8
+
+
+  d3e_pert2_magn  2
+ d3e_pert2_magat  1 2
+d3e_pert2_magdir  1 1 1
+  d3e_pert2_elfd  1
+   d3e_pert2_dir  1 1 1
+  d3e_pert2_phon  1
+ d3e_pert2_atpol  1 8
+
+          prtvol  1
+          ird1wf  1
+          irdwfk  1            
+
+
+### MORE GENERAL PARAMETERS
+
+# xc functional
+# ixc  7 #ixc = -1012    # LDA: 1 PBE: 11 PBEsol: -116  PW LDA:  -1012
+
+#Definition of the atom types
+ntypat 2          
+znucl 24 53      
+                
+#Definition of the atoms
+natom 8           # Nr of atoms
+typat 2*1 6*2     # Sr Mn 3 x O
+
+#Definition of the unit cell
+acell    3*14.5532722145
+
+rprim      5.1480728180E-01  0.0000000000E+00  8.5730593291E-01
+          -2.5740364090E-01  4.4583618409E-01  8.5730593291E-01
+          -2.5740364090E-01 -4.4583618409E-01  8.5730593291E-01
+
+xred
+       0.166280508349      0.166280508086      0.166280503996
+      -0.166280505848     -0.166280506097     -0.166280506002
+       0.424051945955     -0.220361170953      0.065302026100
+       0.065302024331      0.424051943912     -0.220361167348
+      -0.220361171173      0.065302034889      0.424051945241
+      -0.424051832996      0.220361112829     -0.065302080744
+      -0.065302086479     -0.424051832789      0.220361116534
+       0.220361117860     -0.065302089878     -0.424051837778
+
+#Definition of the planewave basis set
+ecut   40.0         # Maximal kinetic energy cut-off, in Hartree
+nband  70
+
+#Definition of the k-point grid
+kptopt 3          # Option for the automatic generation of k points, taking
+                  # into account the symmetry
+#ngkpt 6 6 6      
+
+kptrlatt 6 0 -6
+        -6 6  0
+         2 2  2
+
+nshiftk 1         
+shiftk 0.0 0.0 0.0
+
+#Symmetries deactivated
+nsym 1
+
+nspden   4   
+nspinor  2   
+
+# Parallelization 
+#autoparal 1
+
+#Pseudos
+pp_dirpath "$HOME/.abinit/pseudos"
+pseudos "Cr_LDA_FR.psp8, I_LDA_FR.psp8"
+

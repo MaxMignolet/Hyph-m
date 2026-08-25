@@ -13,6 +13,8 @@ The compilation of Hyph-m requires:
  - meson (https://mesonbuild.com/)
 Optionally: cmake
 
+It is recommended to install these dependencies via homebrew (for macos/linux) or another package manager.
+
 To compile:
 ```sh
 meson setup build
@@ -29,6 +31,8 @@ See `doc/DOCUMENTATION.md` for inputs and outputs.
 # Examples
 
 Examples for bulk CrI3 and CrBr3 are provided in `examples/CrI3` and `examples\CrBr3`. Each folder contains the stiffness matrices and Berry curvatures to compute the phonon-magnon hybrids in these materials.
+
+The abinit input files are also provided for reproducibility. It is not needed to run them in order to run Hyph-m.
 
 # How to cite
 

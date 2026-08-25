@@ -1,0 +1,8 @@
+!Magnetic penalty
+   magpen 0.05
+   mpatpol 1 2
+   mpdir 1 1 0
+   mpopt 1   !(1 Frozen-magnetic, 2 Spin-relaxed)
+   timdisp 1 ! Consider Berry curvatures too
+
+prtvol  2

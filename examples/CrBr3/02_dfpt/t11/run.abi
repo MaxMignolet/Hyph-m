@@ -1,0 +1,73 @@
+# # Input file for BECs calculation.
+ ecut 40
+ iomode 3
+ irdddk 1
+ irdwfk 1
+ ixcrot 3
+ kptopt 3
+ kptrlatt
+  6  0 -6
+ -6  6  0
+  2  2  2
+ magpen 0.05
+ mpatpol 1 2
+ mpdir 1 1 0
+ nband 70
+ nline 12
+ nnsclo -4
+ nqpt 1
+ nshiftk 1
+ nspden 4
+ nspinor 2
+ nstep 200
+ nsym 1
+ prt1mag 1
+ prtden 0
+ prtwf 1
+ qpt    0.0000000000000000000000    0.0000000000000000000000    0.0000000000000000000000
+ ratsm 0.5
+ rfatpol 3 3
+ rfdir 0 0 1
+ # rfefld 3
+ rfomega 0.0
+ rfphon 1
+ shiftk    0.0    0.0    0.0
+ spinat
+    0.0    0.0    5.0
+    0.0    0.0    5.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+    0.0    0.0    0.0
+ tim1rev 1
+ tolvrs 1e-14
+ indata_prefix "indata/in"
+ tmpdata_prefix "tmpdata/tmp"
+ outdata_prefix "outdata/out"
+ pp_dirpath "$HOME/.abinit/pseudos"
+ pseudos 
+    "Cr_LDA_FR.psp8,
+    Br_LDA_FR.psp8"
+ natom 8
+ ntypat 2
+ typat
+ 1 1 2
+ 2 2 2
+ 2 2
+ znucl 24 35
+ xred
+    0.1662882979    0.1662882979    0.1662882979
+    0.8337117021    0.8337117021    0.8337117021
+    0.4216195246    0.7702368596    0.0694560195
+    0.0694560195    0.4216195246    0.7702368596
+    0.7702368596    0.0694560195    0.4216195246
+    0.5783804754    0.2297631404    0.9305439805
+    0.9305439805    0.5783804754    0.2297631404
+    0.2297631404    0.9305439805    0.5783804754
+ acell    1.0    1.0    1.0
+ rprim
+    6.7493259557    0.0000000000   11.1229631832
+   -3.3746629780    5.8450877362   11.1229631832
+   -3.3746629780   -5.8450877362   11.1229631832
